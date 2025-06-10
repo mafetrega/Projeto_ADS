@@ -1,56 +1,71 @@
-# Unifaat :: Devweb :: Projeto - Base
+# Projeto_ADS
 
-## Instalação e Execução
+Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Docker, com arquitetura MVC. O objetivo é gerenciar informações de alunos, professores, turmas, frequência, avaliações, refeições e comunicados.
 
-### Siga os passos abaixo para rodar o projeto via Docker:
+## Funcionalidades
 
-1. Clonar o repositório:
+- Cadastro e listagem de alunos, professores, responsáveis e turmas
+- Controle de frequência dos alunos
+- Registro de avaliações e notas
+- Gerenciamento de refeições
+- Envio e consulta de comunicados e ocorrências
+- API RESTful documentada
+- Deploy com Docker e NGINX
 
-   ```sh
-   git clone https://github.com/luan-tavares/projeto-ads
-   ```
+## Estrutura do Projeto
+```
+. 
+├── app/ 
+│ ├── Controllers/ # Lógica dos controladores da aplicação 
+│ └── Models/ # Definição dos modelos Sequelize 
+├── bootstrap/ # Arquivos de inicialização do projeto 
+├── config/ # Configurações gerais (ex: banco de dados) 
+├── docker/ 
+│ ├── nginx/ # Configurações do NGINX 
+│ ├── node22-web/ # Configurações do container Node.js 
+│ └── postgres/ # Configurações do container PostgreSQL 
+├── docs/ # Documentação do projeto 
+├── public/ # Arquivos públicos (ex: assets) 
+├── routes/ # Definição das rotas da API 
+├── server.js # Arquivo principal do servidor 
+├── docker-compose.yml # Orquestração dos containers 
+├── .env.example # Exemplo de variáveis de ambiente 
+└── readme.md # Documentação do projeto
+```
+## Como rodar o projeto
 
-2. Entrar na pasta do projeto:
+1. **Clone o repositório**  
+   `git clone <url-do-repositorio>`
 
-   ```sh
-   cd projeto-ads
-   ```
+2. **Configure o arquivo `.env`**  
+   Copie `.env.example` para `.env` e ajuste as variáveis conforme necessário.
 
-3. Criar o arquivo `.env` na raiz do projeto copiando o .env.example:
+3. **Suba os containers com Docker Compose**  
+   `docker-compose up --build`
 
-   > No windows:
+4. **Acesse a aplicação**  
+   - Frontend: [http://localhost:8080](http://localhost:8080)
+   - API: [http://localhost:8080/api](http://localhost:8080/api)
 
-   ```ini
-   copy .env.example .env
-   ```
+## Documentação da API
 
-   > No linux
+A documentação pode ser acessada via Swagger em `/api-docs` (se configurado).
 
-   ```ini
-   cp .env.example .env
-   ```
+## Tecnologias Utilizadas
 
+- Node.js
+- Express
+- PostgreSQL
+- Sequelize
+- Docker & Docker Compose
+- NGINX
+- Swagger (documentação da API)
 
-4. Subir a aplicação com Docker Compose:
+## Autores
 
-   ```sh
-   docker compose up --build
-   ```
+- Guilherme
+- Jefter
+- Maria Fernanda
+- Thais
 
-   > ou, dependendo da versão do Docker:
-   >
-   > - Usuários com versões **mais antigas** ou com Docker Compose instalado separadamente usam:
-
-   ```sh
-   docker-compose up --build
-   ```
-
-   > - Usuários com **Docker moderno** devem usar:
-
-   ```sh
-   docker compose up --build
-   ```
-
-O servidor estará disponível em: [http://localhost:8080](http://localhost:8080)
-
-Observação: ./Insomnia.yml pode ser utilizado no insomnia
+---
