@@ -1,4 +1,4 @@
-# Projeto_ADS
+# Projeto 
 
 Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Docker, com arquitetura MVC. O objetivo é gerenciar informações de alunos, professores, turmas, frequência, avaliações, refeições e comunicados.
 
@@ -35,7 +35,7 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 ## Como rodar o projeto
 
 1. **Clone o repositório**  
-   `git clone https://github.com/mafetrega/Projeto_ADS.git`
+   ```git clone https://github.com/mafetrega/Projeto_ADS.git```
 
 2. **Configure o arquivo `.env`**  
    No windows:
@@ -51,14 +51,11 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
    ```
 
 3. **Suba os containers com Docker Compose**  
-   `docker-compose up --build`
+   ```docker-compose up --build```
 
 4. **Acesse a aplicação**  
    - (http://localhost:8080)
 
-## Documentação da API
-
-A documentação pode ser acessada via Swagger em `/api-docs` (se configurado).
 
 ## Tecnologias Utilizadas
 
@@ -72,10 +69,10 @@ A documentação pode ser acessada via Swagger em `/api-docs` (se configurado).
 
 ## Autores
 
-- Guilherme
-- Jefter
-- Lucas
-- Maria Fernanda
-- Tais
+- Guilherme Almeida Silva - 6324521
+- Jefter Alves - 6424502
+- Lucas Gabriel - 6324507
+- Maria Fernanda Trega - 6324656
+- Tais Gomes - 6324004
 
 ---
