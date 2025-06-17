@@ -1,12 +1,25 @@
-// controllers/colaboradorController.js
 import "../../bootstrap/app.js";
-import ColaboradoresModel from "../Models/ColaboradoresModel.js";
+import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelsAvaliacoes.js";
 
 export default (function () {
     const MAX_LIMIT = 100;
 
+    /* 
+    Avaliacao_ID SERIAL PRIMARY KEY,
+    Aluno_ID INT NOT NULL, -- Chave estrangeira para a tabela Alunos
+    Turma_ID INT NOT NULL, -- Chave estrangeira para a tabela Turma
+    Professor_ID INT NOT NULL, -- Chave estrangeira para a tabela Professores
+    Data_Avaliacao TIMESTAMP NOT NULL,
+    TipoAvaliacao VARCHAR(100),
+    Nota DECIMAL(5, 2),
+    Observacoes TEXT,
+    FOREIGN KEY (Aluno_ID) REFERENCES Alunos (Aluno_ID), -- Relacionamento Avaliações com Alunos (1:N)
+    FOREIGN KEY (Turma_ID) REFERENCES Turma (Turma_ID), -- Relacionamento Avaliações com Turma (1:N)
+    FOREIGN KEY (Professor_ID) REFERENCES Professores (Professor_ID)
+    */
+
     return {
-        // GET /colaboradores
+        // GET /Avaliacoes
         list: async (req, res) => {
             // req.query = query vars
 
@@ -17,68 +30,27 @@ export default (function () {
                 return res.status(400).json({ error: "Limit máximo: 100." });
             }
 
-            const colaboradores = await ColaboradoresModel.findAll({
-                limit: limit,
+            const avaliacoes = await AvaliacoesModel.findAll({
+                limit: limit + 1, // Para verificar se há mais registros
                 offset: offset,
-                order: [["id", "ASC"]],
+                order: [["avaliacao_id", "ASC"]],
             });
 
-            const temMais = colaboradores.length > limit;
-            let rows = colaboradores;
+            const temMais = avaliacoes.length > limit;
+            let rows = avaliacoes;
 
             const resposta = {
-                rows: temMais ? colaboradores.slice(0, limit) : colaboradores,
+                rows: temMais ? avaliacoes.slice(0, limit) : avaliacoes,
                 limit: limit,
                 next: temMais ? offset + limit : null,
             };
 
             return res.status(200).json(resposta);
 
-            // ColaboradoresModel.findAll(options: {...})
+            // AvaliacoesModel.findAll(options: {...})
             // limit: int
             // offset: int
             // order: [field, ASC or DESC]
-
-            try {
-            } catch (error) {
-                return res.status(500).json({ error: "Error de servidor." });
-            }
-        },
-
-        // GET /colaboradores/:id
-        // GET /colaboradores/:id
-        get: async (req, res) => {
-            const id = req.params.id;
-
-            try {
-                const colaborador = await ColaboradoresModel.findByPk(id);
-
-                if (!colaborador) {
-                    return res.status(404).json({ error: "Colaborador não encontrado." });
-                }
-
-                return res.status(200).json(colaborador);
-            } catch (error) {
-                return res.status(500).json({ error: "Erro de servidor." });
-            }
-        },
-
-
-        // POST /colaboradores
-        insert: async (req, res) => {
-            // req.body = request body
-
-            const nome = req.body.nome;
-            const cargo = req.body.cargo;
-            const pode_desenvolver = req.body.pode_desenvolver;
-
-            const colaborador = await ColaboradoresModel.create({
-                nome: nome,
-                cargo: cargo,
-                pode_desenvolver: pode_desenvolver,
-            });
-
-            return res.status(201).json(colaborador);
 
             try {
             } catch (error) {

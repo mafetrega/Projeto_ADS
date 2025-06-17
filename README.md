@@ -35,7 +35,9 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 ## Como rodar o projeto
 
 1. **Clone o repositório**  
-   ```git clone https://github.com/mafetrega/Projeto_ADS.git```
+   ```ini
+   git clone https://github.com/mafetrega/Projeto_ADS.git
+   ```
 
 2. **Configure o arquivo `.env`**  
    No windows:
@@ -51,7 +53,9 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
    ```
 
 3. **Suba os containers com Docker Compose**  
-   ```docker-compose up --build```
+   ```ini
+   docker-compose up --build
+   ```
 
 4. **Acesse a aplicação**  
    - (http://localhost:8080)
