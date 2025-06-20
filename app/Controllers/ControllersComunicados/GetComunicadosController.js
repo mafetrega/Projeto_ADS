@@ -1,5 +1,5 @@
 import "../../../bootstrap/app.js";
-import ModelsAvaliacoes from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
+import ModelComunicados from "../../Models/ModelsComunicados/ModelComunicados.js";
 
 export default (function () {
 
@@ -9,13 +9,13 @@ export default (function () {
             const id = req.params.id;
 
             try {
-                const avaliacao = await ModelsAvaliacoes.findByPk(id);
+                const comunicado = await ModelComunicados.findByPk(id);
 
-                if (!avaliacao) {
-                    return res.status(404).json({ error: "Avaliação não encontrada." });
+                if (!comunicado) {
+                    return res.status(404).json({ error: "Comunicado não encontrado." });
                 }
 
-                return res.status(200).json(avaliacao);
+                return res.status(200).json(comunicado);
             } catch (error) {
                 return res.status(500).json({ error: "Erro de servidor." });
             }

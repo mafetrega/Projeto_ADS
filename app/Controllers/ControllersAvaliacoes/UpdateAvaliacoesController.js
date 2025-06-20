@@ -1,5 +1,5 @@
-import "../../bootstrap/app.js";
-import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelsAvaliacoes.js";
+import "../../../bootstrap/app.js";
+import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
 
 export default (function () {
     const TABLE = "Avaliacoes"; // Nome da tabela no banco de dados

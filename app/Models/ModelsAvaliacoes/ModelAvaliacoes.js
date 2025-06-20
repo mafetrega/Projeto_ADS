@@ -1,24 +1,25 @@
-import sequelize from '../../config/sequelize.js';
+import sequelize from '../../../config/sequelize.js';
 import { DataTypes } from 'sequelize';
 
 export default (function () {
 
-    /* 
-        Avaliacao_ID SERIAL PRIMARY KEY,
-        Aluno_ID INT NOT NULL, -- Chave estrangeira para a tabela Alunos
-        Turma_ID INT NOT NULL, -- Chave estrangeira para a tabela Turma
-        Professor_ID INT NOT NULL, -- Chave estrangeira para a tabela Professores
-        Data_Avaliacao TIMESTAMP NOT NULL,
-        TipoAvaliacao VARCHAR(100),
-        Nota DECIMAL(5, 2),
-        Observacoes TEXT,
-        FOREIGN KEY (Aluno_ID) REFERENCES Alunos (Aluno_ID), -- Relacionamento Avaliações com Alunos (1:N)
-        FOREIGN KEY (Turma_ID) REFERENCES Turma (Turma_ID), -- Relacionamento Avaliações com Turma (1:N)
-        FOREIGN KEY (Professor_ID) REFERENCES Professores (Professor_ID)
+    /* CREATE TABLE avaliacoes (
+        avaliacao_id SERIAL PRIMARY KEY,
+        aluno_id INT NOT NULL, -- Chave estrangeira para a tabela Alunos
+        turma_id INT NOT NULL, -- Chave estrangeira para a tabela Turma
+        professor_id INT NOT NULL, -- Chave estrangeira para a tabela Professores
+        data_avaliacao TIMESTAMP NOT NULL,
+        tipoavaliacao VARCHAR(100),
+        nota DECIMAL(5, 2),
+        observacoes TEXT,
+        FOREIGN KEY (aluno_id) REFERENCES alunos (aluno_id), -- Relacionamento Avaliações com Alunos (1:N)
+        FOREIGN KEY (turma_id) REFERENCES turma (turma_id), -- Relacionamento Avaliações com Turma (1:N)
+        FOREIGN KEY (professor_id) REFERENCES professores (professor_id) -- Relacionamento Avaliações com Professores (1:N)
+    );
     */
 
     return sequelize.define(
-        "AvaliacoesModel",
+        "ModelAvaliacoes",
         {
             avaliacao_id: { // Chave primária
                 type: DataTypes.INTEGER,
@@ -42,7 +43,7 @@ export default (function () {
                 type: DataTypes.DATE,
                 allowNull: false
             },
-            tipo_avaliacao: { // Tipo da avaliação
+            tipoavaliacao: { // Tipo da avaliação
                 type: DataTypes.STRING(100),
                 allowNull: true
             },
@@ -56,7 +57,7 @@ export default (function () {
             }
         },
         {
-            tableName: "Avaliacoes", // Nome da tabela no banco de dados
+            tableName: "avaliacoes", // Nome da tabela no banco de dados
             timestamps: false
         }
     );

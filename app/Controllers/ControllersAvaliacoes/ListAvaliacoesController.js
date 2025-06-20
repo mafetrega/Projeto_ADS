@@ -1,5 +1,5 @@
-import "../../bootstrap/app.js";
-import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelsAvaliacoes.js";
+import "../../../bootstrap/app.js";
+import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
 
 export default (function () {
     const MAX_LIMIT = 100;
@@ -33,7 +33,7 @@ export default (function () {
             const avaliacoes = await AvaliacoesModel.findAll({
                 limit: limit + 1, // Para verificar se há mais registros
                 offset: offset,
-                order: [["avaliacao_id", "ASC"]],
+                order: [["Avaliacao_ID", "ASC"]],
             });
 
             const temMais = avaliacoes.length > limit;

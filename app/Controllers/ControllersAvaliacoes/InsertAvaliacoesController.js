@@ -1,6 +1,6 @@
-import "../../bootstrap/app.js";
+import "../../../bootstrap/app.js";
 
-import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelsAvaliacoes.js";
+import AvaliacoesModel from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
 
 export default (function () {
 
@@ -43,7 +43,7 @@ export default (function () {
                 observacoes: Observacoes,
             });
 
-            return res.status(201).json(colaborador);
+            return res.status(201).json(avaliacao);
 
             try {
             } catch (error) {
