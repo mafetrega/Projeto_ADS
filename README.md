@@ -14,23 +14,26 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 
 ## Estrutura do Projeto
 ```
-. 
-├── app/ 
-│ ├── Controllers/ # Lógica dos controladores da aplicação 
-│ └── Models/ # Definição dos modelos Sequelize 
-├── bootstrap/ # Arquivos de inicialização do projeto 
-├── config/ # Configurações gerais (ex: banco de dados) 
-├── docker/ 
-│ ├── nginx/ # Configurações do NGINX 
-│ ├── node22-web/ # Configurações do container Node.js 
-│ └── postgres/ # Configurações do container PostgreSQL 
-├── docs/ # Documentação do projeto 
-├── public/ # Arquivos públicos (ex: assets) 
-├── routes/ # Definição das rotas da API 
-├── server.js # Arquivo principal do servidor 
-├── docker-compose.yml # Orquestração dos containers 
-├── .env.example # Exemplo de variáveis de ambiente 
-└── readme.md # Documentação do projeto
+.
+├── app/
+│   ├── controllers/         # Lógica dos controladores da aplicação
+│   ├── models/              # Definição dos modelos Sequelize
+│   └── services/            # Lógica de negócio e serviços auxiliares
+├── bootstrap/               # Arquivos de inicialização do projeto
+├── config/                  # Configurações gerais (ex: banco de dados)
+├── docker/
+│   ├── nginx/               # Configurações do NGINX
+│   ├── node/                # Configurações do container Node.js
+│   └── postgres/            # Configurações do container PostgreSQL
+├── docs/                    # Documentação do projeto
+├── migrations/              # Arquivos de migração do banco de dados
+├── public/                  # Arquivos públicos (ex: assets)
+├── routes/                  # Definição das rotas da API
+├── tests/                   # Testes automatizados
+├── server.js                # Arquivo principal do servidor
+├── docker-compose.yml       # Orquestração dos containers
+├── .env.example             # Exemplo de variáveis de ambiente
+└── readme.md                # Documentação do projeto
 ```
 ## Como rodar o projeto
 
