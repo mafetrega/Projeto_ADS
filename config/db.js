@@ -1,17 +1,13 @@
-import { Pool } from 'pg';
+import { Sequelize } from 'sequelize';
 
-export default (function () {
-
-    const env = process.env;
-
-    const db = new Pool({
-        host: env.POSTGRES_HOST,
-        port: env.POSTGRES_PORT,
-        user: env.POSTGRES_USER,
-        password: env.POSTGRES_PASSWORD,
-        database: env.POSTGRES_DB,
-    });
-
-    return db;
-
-})();
+export const sequelize = new Sequelize(
+  process.env.POSTGRES_DB,
+  process.env.POSTGRES_USER,
+  process.env.POSTGRES_PASSWORD,
+  {
+    host: process.env.POSTGRES_HOST,
+    dialect: 'postgres',
+    port: process.env.POSTGRES_PORT || 5432,
+    logging: false,
+  }
+);
