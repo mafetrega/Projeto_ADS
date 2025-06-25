@@ -1,28 +1,24 @@
-import "../../../bootstrap/app.js";
+import CONSTANTS from "../../../config/constants.js"; // ajuste o caminho se necessário
 import ModelRefeicoes from "../../Models/ModelsRefeicoes/ModelRefeicoes.js";
-export default (function () {
-    const TABLE = "refeicoes"; // Nome da tabela no banco de dados
 
-    const HTTP_STATUS = CONSTANTS.HTTP;
+export default {
+    delete: async (request, response) => {
+        const HTTP_STATUS = CONSTANTS.HTTP;
+        const refeicao_id = request.params.id;
 
-    return {
-        // DELETE /Avaliacoes/:id
-        delete: async (request, response) => {
-            const { id } = request.params;
-            try {
-                const result = await db.query(
-                    `DELETE FROM ${TABLE} WHERE comunicado_id = $1 RETURNING *`,
-                    [id]
-                );
-                if (result.rowCount === 0) {
-                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Comunicado não encontrada para exclusão.' });
-                }
-                return response.status(HTTP_STATUS.SUCCESS_NO_CONTENT).send();
-            } catch (err) {
-                console.error(err);
-                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao excluir comunicado.' });
+        try {
+            const rowsDeleted = await ModelRefeicoes.destroy({
+                where: { refeicao_id }
+            });
+
+            if (rowsDeleted === 0) {
+                return response.status(HTTP_STATUS.NOT_FOUND).json({ error: `Refeição com id ${refeicao_id} não existe!` });
             }
-        },
-    }
-})();
 
+            return response.status(HTTP_STATUS.SUCCESS_NO_CONTENT).send();
+        } catch (error) {
+            console.log(error);
+            return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro de servidor.' });
+        }
+    }
+};
