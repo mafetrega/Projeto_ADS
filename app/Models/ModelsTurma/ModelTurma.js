@@ -41,7 +41,7 @@ export default (function () {
             },
         },
         {
-            tableName: "Turma",
+            tableName: "turma",
             timestamps: false
         }
     );
