@@ -28,6 +28,8 @@ export default (function () {
     // Rotas de comunicados
     router.use('/', ComunicadosRoutes);
 
+
+
     /** Se nenhuma rota for encontrada retorna 404 */
     router.use((req, res) => {
         res.status(CONSTANTS.HTTP.NOT_FOUND).json({ error: "Not found" });
