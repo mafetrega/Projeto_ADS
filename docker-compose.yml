@@ -39,9 +39,9 @@ services:
     image: postgres:17
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: Sistema_Escolar
+      POSTGRES_USER: meu_usuario
+      POSTGRES_PASSWORD: minha_senha
     ports:
       - "6789:${POSTGRES_PORT}"
     volumes:
