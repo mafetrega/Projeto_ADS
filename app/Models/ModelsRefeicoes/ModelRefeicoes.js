@@ -28,7 +28,7 @@ CREATE TABLE
                 allowNull: false
             },
             tipo_refeicao: { // Tipo de comunicado
-                type: DataTypes.VARCHAR(50),
+                type: DataTypes.STRING(50),
                 allowNull: false
             },
             descricao: { // Título do comunicado

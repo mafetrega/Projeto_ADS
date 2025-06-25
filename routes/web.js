@@ -10,6 +10,7 @@ import path from 'path';
 
 import AvaliacoesRoutes from "./RoutesAvaliacoes/AvaliacoesRoutes.js";
 import ComunicadosRoutes from "./RoutesComunicados/ComunicadosRoutes.js";
+import RefeicoesRoutes from './RoutesRefeicoes/RefeicoesRoutes.js';
 
 export default (function () {
 
@@ -28,7 +29,8 @@ export default (function () {
     // Rotas de comunicados
     router.use('/', ComunicadosRoutes);
 
-    //teste
+    // Rotas de Refeicoes
+    router.use('/', RefeicoesRoutes);
 
     /** Se nenhuma rota for encontrada retorna 404 */
     router.use((req, res) => {

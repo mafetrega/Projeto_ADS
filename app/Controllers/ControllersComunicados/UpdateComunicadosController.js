@@ -1,61 +1,53 @@
 import ModelComunicados from "../../Models/ModelsComunicados/ModelComunicados.js";
 
-export default async (request, response) => {
+export default (function () {
+    return {
+        update: async (req, res) => {
+            const HTTP_STATUS = CONSTANTS.HTTP;
 
-    const HTTP_STATUS = CONSTANTS.HTTP;
+            const comunicado_id = req.params.id; // O parâmetro da rota deve ser o comunicado_id
 
-    const id = request.params.id;
+            const requestBody = req.body;
+            const { aluno_id, turma_id, data_publicacao, tipocomunicado, titulo, mensagem, responsavel_id } = requestBody;
 
-    const requestBody = request.body;
-    const nome = requestBody.nome;
-    const esta_ativo = requestBody.esta_ativo;
+            const data = {};
 
-    const data = {};
+            if (aluno_id !== undefined) data["aluno_id"] = aluno_id;
+            if (turma_id !== undefined) data["turma_id"] = turma_id;
+            if (data_publicacao !== undefined) data["data_publicacao"] = data_publicacao;
+            if (tipocomunicado !== undefined) data["tipocomunicado"] = tipocomunicado;
+            if (titulo !== undefined) data["titulo"] = titulo;
+            if (mensagem !== undefined) data["mensagem"] = mensagem;
+            if (responsavel_id !== undefined) data["responsavel_id"] = responsavel_id;
 
-    if (nome !== undefined) {
-        data["nome"] = nome;
-    }
-
-    if (esta_ativo !== undefined) {
-        data["esta_ativo"] = esta_ativo;
-    }
-
-    // Object.keys({a:1, b:2, c:3}) = [a,b,c]
-    // [a,b,c].length = 3
-
-    if (Object.keys(data).length === 0) {
-        return response.status(HTTP_STATUS.BAD_REQUEST).json({
-            error: `Nenhum campo foi inputado em ${id}`
-        });
-    }
-
-    try {
-
-        const [rowsAffected, [row]] = await ColaboradorModel.update(
-            {
-                nome: nome,
-                esta_ativo: esta_ativo
-            },
-            {
-                where: {
-                    id: id
-                },
-                returning: true
+            if (Object.keys(data).length === 0) {
+                return res.status(HTTP_STATUS.BAD_REQUEST).json({
+                    error: `Nenhum campo foi enviado para atualização em ${comunicado_id}`
+                });
             }
-        );
 
-        if (rowsAffected === 0 || !row) {
-            return response.status(HTTP_STATUS.NOT_FOUND).json({
-                error: `Nenhum colaborador encontrado com ID ${id}`
-            });
+            try {
+                const [rowsAffected, [row]] = await ModelComunicados.update(
+                    data,
+                    {
+                        where: {
+                            comunicado_id: comunicado_id
+                        },
+                        returning: true
+                    }
+                );
+
+                if (rowsAffected === 0 || !row) {
+                    return res.status(HTTP_STATUS.NOT_FOUND).json({
+                        error: `Nenhum comunicado encontrado com ID ${comunicado_id}`
+                    });
+                }
+
+                return res.status(HTTP_STATUS.SUCCESS).json(row);
+
+            } catch (error) {
+                return res.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro de servidor.' });
+            }
         }
-
-        return response.status(HTTP_STATUS.SUCCESS).json(row);
-
-    } catch (error) {
-
-        return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Error de servidor.' });
-
     }
-
-};
+})();
