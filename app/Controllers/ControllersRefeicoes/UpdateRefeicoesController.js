@@ -1,47 +1,49 @@
-import "../../../bootstrap/app.js";
 import ModelRefeicoes from "../../Models/ModelsRefeicoes/ModelRefeicoes.js";
 export default (function () {
-    const TABLE = "refeicoes"; // Nome da tabela no banco de dados
-    const HTTP_STATUS = CONSTANTS.HTTP;
-
     return {
-        // PUT /refeicoes/:id
-        update: async (request, response) => {
-            const { id } = request.params;
-            const {
-                refeicao_id,
-                data,
-                tipo_refeicao,
-                descricao,
-                observacao,
-            } = request.body;
+        update: async (req, res) => {
+            const HTTP_STATUS = CONSTANTS.HTTP;
+
+            const refeicao_id = req.params.id; // O parâmetro da rota deve ser o refeicao_id
+
+            const requestBody = req.body;
+            const { data, tipo_refeicao, descricao, observacoes } = requestBody;
+
+            const dados = {};
+
+            if (data !== undefined) dados["data"] = data;
+            if (tipo_refeicao !== undefined) dados["tipo_refeicao"] = tipo_refeicao;
+            if (descricao !== undefined) dados["descricao"] = descricao;
+            if (observacoes !== undefined) dados["observacoes"] = observacoes;
+
+            if (Object.keys(dados).length === 0) {
+                return res.status(HTTP_STATUS.BAD_REQUEST).json({
+                    error: `Nenhum campo foi enviado para atualização em ${refeicao_id}`
+                });
+            }
 
             try {
-                const result = await db.query(
-                    `UPDATE ${TABLE} SET 
-                        refeicao_id = $1,
-                        data = $2,
-                        tipo_refeicao = $3,
-                        descricao = $4,
-                        observacao = $5,
-                    WHERE refeicao_id = $6 RETURNING *`,
-                    [
-                        refeicao_id,
-                        data,
-                        tipo_refeicao,
-                        descricao,
-                        observacao,
-                        id
-                    ]
+                const [rowsAffected, [row]] = await ModelRefeicoes.update(
+                    dados,
+                    {
+                        where: {
+                            refeicao_id: refeicao_id
+                        },
+                        returning: true
+                    }
                 );
-                if (result.rowCount === 0) {
-                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Refeicao não encontrado para atualização.' });
+
+                if (rowsAffected === 0 || !row) {
+                    return res.status(HTTP_STATUS.NOT_FOUND).json({
+                        error: `Nenhuma refeicao encontrada com ID ${refeicao_id}`
+                    });
                 }
-                return response.status(HTTP_STATUS.SUCCESS).json(result.rows[0]);
-            } catch (err) {
-                console.error(err);
-                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao atualizar Refeicao.' });
+
+                return res.status(HTTP_STATUS.SUCCESS).json(row);
+
+            } catch (error) {
+                return res.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro de servidor.' });
             }
-        },
-    };
+        }
+    }
 })();
