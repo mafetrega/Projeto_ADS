@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import GetFrequenciaController from '../../app/Controllers/ControllersFrequencia/GetFrequenciaController.js';
-import ListFrequenciaController from '../../app/Controllers/ControllersFrequencia/ListFrequenciaController.js';
-import InsertFrequenciaController from '../../app/Controllers/ControllersFrequencia/InsertFrequenciaController.js';
-import UpdateFrequenciaController from '../../app/Controllers/ControllersFrequencia/UpdateFrequenciaController.js';
-import DeleteFrequenciaController from '../../app/Controllers/ControllersFrequencia/DeleteFrequenciaController.js';
+import GetFrequenciaController from '../../app/Controllers/ControllersFrequencia/ControllerGetFrequencias.js';
+import ListFrequenciaController from '../../app/Controllers/ControllersFrequencia/ControllerListFrequencias.js';
+import InsertFrequenciaController from '../../app/Controllers/ControllersFrequencia/ControllerCreateFrequencias.js';
+import UpdateFrequenciaController from '../../app/Controllers/ControllersFrequencia/ControllerUpdateFrequencias.js';
+import DeleteFrequenciaController from '../../app/Controllers/ControllersFrequencia/ControllerDeleteFrequencias.js';
 
 export default (function () {
 

@@ -1,4 +1,4 @@
-import ModelTurma from "../../Models/ModelsTurma/ModelTurma";
+import ModelTurma from "../../Models/ModelsTurma/ModelTurma.js";
 export default (function () {
     return {
         update: async (req, res) => {

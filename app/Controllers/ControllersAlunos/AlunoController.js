@@ -1,6 +1,6 @@
-import { Aluno } from '../models/index.js';
+import Aluno from '../..//Models/ModelsAlunos/Aluno.js';
 
-const alunoController = {
+const AlunoController = {
   async listar(req, res) {
     try {
       const alunos = await Aluno.findAll();
@@ -61,4 +61,4 @@ const alunoController = {
   }
 };
 
-export default alunoController;
+export default AlunoController;

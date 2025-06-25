@@ -1,12 +1,28 @@
 import express from 'express';
-import alunoController from '../controllers/alunoController.js';
+import { Router } from 'express';
+import AlunoController from '../../app/Controllers/ControllersAlunos/alunoController.js';
 
-const router = express.Router();
+export default (function () {
 
-router.get('/api/alunos', alunoController.listar);
-router.get('/api/alunos/:id', alunoController.buscarPorId);
-router.post('/api/alunos', alunoController.criar);
-router.put('/api/alunos/:id', alunoController.atualizar);
-router.delete('/api/alunos/:id', alunoController.deletar);
+    const router = Router();
 
-export default router;
+    // router.metodo("/rota", (request, response) => {...})
+
+    // GET List
+    router.get('/api/Alunos', AlunoController.listar);
+
+    // GET Obter um
+    router.get('/api/Alunos/:id', AlunoController.buscarPorId);
+
+    // POST Insert
+    router.post('/api/Alunos', AlunoController.criar);
+
+    // PUT Update
+    router.put('/api/Alunos/:id', AlunoController.atualizar);
+
+    // DELETE Atualizar
+    router.delete('/api/Alunos/:id', AlunoController.deletar);
+
+    return router;
+
+})();
