@@ -1,128 +1,37 @@
 type: collection.insomnia.rest/5.0
-name: Projeto Final
+name: Faat
 meta:
-  id: wrk_f04068932c314ef6b0e78ee747720a47
-  created: 1750427796448
-  modified: 1750427854520
-  description: ""
+  id: wrk_f1f22493c7e54d498b8edd5d85336d3b
+  created: 1746921355371
+  modified: 1746921355371
 collection:
-  - name: Comunicados
+  - name: Base project
     meta:
-      id: fld_a5de54bbd5224f20b9834241d3297e0b
-      created: 1750427826893
-      modified: 1750427944916
-      sortKey: -1750427826893
-      description: ""
+      id: fld_7a5abd7c264841478455d24711b6e156
+      created: 1746921367443
+      modified: 1747956716262
+      sortKey: -1746921367443
     children:
-      - url: http://localhost:8080/api/Comunicados
-        name: list
+      - url: http://localhost:8080/api/example
+        name: Insert
         meta:
-          id: req_3afc5112b7b14bd8928f1ad68e50e64a
-          created: 1750427878398
-          modified: 1750440837948
+          id: req_ab80ed9fa8eb4e00885ad856971c4522
+          created: 1746921369872
+          modified: 1747954942596
           isPrivate: false
-          description: ""
-          sortKey: -1750427878398
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/22
-        name: get
-        meta:
-          id: req_d25a5701d8524cc382f1a529ca1c80ad
-          created: 1750427900280
-          modified: 1750440206284
-          isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/25
-        name: update
-        meta:
-          id: req_a757392447794708977240d2c2618ee6
-          created: 1750427913782
-          modified: 1750440932468
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados
-        name: insert
-        meta:
-          id: req_05932fcc88684d67885779734692701a
-          created: 1750427930553
-          modified: 1750440264677
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
+          sortKey: -1746921369872
         method: POST
         body:
           mimeType: application/json
           text: |-
             {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
+            	"nome": "teste 2"
             }
         headers:
           - name: Content-Type
             value: application/json
           - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -131,53 +40,27 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/2
-        name: delete
+      - url: http://localhost:8080/api/example
+        name: List
         meta:
-          id: req_5d23c39e4a9540c3aebb3639952bf67c
-          created: 1750427946358
-          modified: 1750450219360
+          id: req_1854b64b316a4cce8eabf582639ac43d
+          created: 1746921509547
+          modified: 1747957811549
           isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Avaliações
-    meta:
-      id: fld_84e175224a6a4a68a5841910172bf356
-      created: 1750814304827
-      modified: 1750814304827
-      sortKey: -1750427826843
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Avaliacoes/
-        name: list
-        meta:
-          id: req_eaaf4ffd6ba64c1a9e7993a7910cdfd0
-          created: 1750814304833
-          modified: 1750814599801
-          isPrivate: false
-          description: ""
-          sortKey: -1750427878398
+          sortKey: -1746272969214.5
         method: GET
-        body:
-          mimeType: application/json
-          text: ""
+        parameters:
+          - id: pair_f5a7897d98e5480baad928e8072bddc5
+            name: limit
+            value: "10"
+            disabled: false
+          - id: pair_609f3717c06e4fbaa78f4d40cdbd3c56
+            name: offset
+            value: "10"
+            disabled: false
         headers:
-          - name: Content-Type
-            value: application/json
           - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -186,54 +69,27 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/api/Avaliacoes/22
-        name: get
+      - url: http://localhost:8080/api/example/13
+        name: Update
         meta:
-          id: req_61125121cf174cf6b6adcaebf0e4869c
-          created: 1750814304839
-          modified: 1750814593628
+          id: req_99cb0bbbe6d7453697b35575f1726073
+          created: 1746921688594
+          modified: 1747955907726
           isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Avaliacoes/25
-        name: update
-        meta:
-          id: req_17fbeb7fe43e4fb4b50cab13a1bb2916
-          created: 1750814304842
-          modified: 1750814585893
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
+          sortKey: -1746597169543.25
         method: PUT
         body:
           mimeType: application/json
           text: |-
             {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
+            	"nome": "Charmander",
+            	"esta_ativo": false
             }
         headers:
           - name: Content-Type
             value: application/json
           - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -242,33 +98,18 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/api/Avaliacoes/
-        name: insert
+      - url: http://localhost:8080/api/example/100
+        name: Get
         meta:
-          id: req_0c97de0d302142e8b883d93167f49d19
-          created: 1750814304846
-          modified: 1750814581272
+          id: req_6592c1af854941e89eb2d4fc6787a5eb
+          created: 1747954951819
+          modified: 1747958462356
           isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
+          sortKey: -1744724780910.25
+        method: GET
         headers:
-          - name: Content-Type
-            value: application/json
           - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -277,19 +118,18 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/api/Avaliacoes/2
-        name: delete
+      - url: http://localhost:8080/api/example/11
+        name: Delete
         meta:
-          id: req_f2973de7ae204df5bfb9e4504492ec11
-          created: 1750814304849
-          modified: 1750814569523
+          id: req_cad1c2fd74ee4b858cda824be766a766
+          created: 1747956113348
+          modified: 1747956292240
           isPrivate: false
-          description: ""
-          sortKey: -1750427946359
+          sortKey: -1743950686758.125
         method: DELETE
         headers:
           - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -298,32 +138,27 @@ collection:
             send: true
             store: true
           rebuildPath: true
-  - name: Refeições
-    meta:
-      id: fld_7b59aad4d9504078b4b8c4850cc74523
-      created: 1750814337451
-      modified: 1750814337451
-      sortKey: -1750427826793
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Refeicoes/
-        name: list
+      - url: http://localhost:8080/env
+        name: env
         meta:
-          id: req_356120cdf67240edb26291fc5d0afe62
-          created: 1750814337454
-          modified: 1750814678119
+          id: req_6022df346fd347dcb3f465532ac1af04
+          created: 1747957175536
+          modified: 1747958475181
           isPrivate: false
-          description: ""
-          sortKey: -1750427878398
+          sortKey: -1744337733834.1875
         method: GET
-        body:
-          mimeType: application/json
-          text: ""
+        parameters:
+          - id: pair_f5a7897d98e5480baad928e8072bddc5
+            name: limit
+            value: "10"
+            disabled: false
+          - id: pair_609f3717c06e4fbaa78f4d40cdbd3c56
+            name: offset
+            value: "10"
+            disabled: false
         headers:
-          - name: Content-Type
-            value: application/json
           - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -332,840 +167,27 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/api/Refeicoes/22
-        name: get
+      - url: http://localhost:8080/
+        name: Home
         meta:
-          id: req_4658d0ac8873443a907eb2eb4977f16c
-          created: 1750814337458
-          modified: 1750814670892
+          id: req_ed7e211851e843709a853da2bd5e8397
+          created: 1747958625462
+          modified: 1747958629229
           isPrivate: false
-          description: ""
-          sortKey: -1750427900280
+          sortKey: -1744144210296.1562
         method: GET
+        parameters:
+          - id: pair_f5a7897d98e5480baad928e8072bddc5
+            name: limit
+            value: "10"
+            disabled: false
+          - id: pair_609f3717c06e4fbaa78f4d40cdbd3c56
+            name: offset
+            value: "10"
+            disabled: false
         headers:
           - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Refeicoes/25
-        name: update
-        meta:
-          id: req_1e383d9cf4424234aa76eaee8070e353
-          created: 1750814337460
-          modified: 1750814663492
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Refeicoes/
-        name: insert
-        meta:
-          id: req_9fc5193db6fc49fe9fce0e611f2214b9
-          created: 1750814337462
-          modified: 1750814654250
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Refeicoes/2
-        name: delete
-        meta:
-          id: req_014cce6cce0b4d22ad400bbda801b5b2
-          created: 1750814337466
-          modified: 1750814629576
-          isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Turma
-    meta:
-      id: fld_8c24ba76032b47abb45fdff3713f92d1
-      created: 1750814396670
-      modified: 1750814396670
-      sortKey: -1750427826743
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Comunicados
-        name: list
-        meta:
-          id: req_baa9f2a0de3e4e4b94798e6029b128f5
-          created: 1750814396677
-          modified: 1750814396677
-          isPrivate: false
-          description: ""
-          sortKey: -1750427878398
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/22
-        name: get
-        meta:
-          id: req_914f2f7e49994c11b5da3f16613308cd
-          created: 1750814396684
-          modified: 1750814396684
-          isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/25
-        name: update
-        meta:
-          id: req_6f48993db91d4b34a5d02a3b5fb3d77f
-          created: 1750814396692
-          modified: 1750814396692
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados
-        name: insert
-        meta:
-          id: req_3c3bc45fc6e649f9ab87cfbb1d23e3db
-          created: 1750814396698
-          modified: 1750814396698
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/2
-        name: delete
-        meta:
-          id: req_f28a2efc754c46ef918e771cd92dcf17
-          created: 1750814396706
-          modified: 1750814396706
-          isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Professores
-    meta:
-      id: fld_ccca4ff62b6847f79b962ba15740aa3e
-      created: 1750814407336
-      modified: 1750814407336
-      sortKey: -1750427826693
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Comunicados
-        name: list
-        meta:
-          id: req_dcb8dbe0086e4ec8b52cb677e5485252
-          created: 1750814407355
-          modified: 1750814407355
-          isPrivate: false
-          description: ""
-          sortKey: -1750427878398
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/22
-        name: get
-        meta:
-          id: req_3c77e7ad021f417da8976805395ec73c
-          created: 1750814407367
-          modified: 1750814407367
-          isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/25
-        name: update
-        meta:
-          id: req_a812ddbbe86f4a2a8da7a2136f7e6b25
-          created: 1750814407390
-          modified: 1750814407390
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados
-        name: insert
-        meta:
-          id: req_22157bc721f1478782909d485c67d708
-          created: 1750814407398
-          modified: 1750814407398
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/2
-        name: delete
-        meta:
-          id: req_70a572e5867a48a1b2158bad67b51888
-          created: 1750814407405
-          modified: 1750814407405
-          isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Alunos
-    meta:
-      id: fld_ed370ed769a741c3b1bfb0672d470efd
-      created: 1750814421517
-      modified: 1750814421517
-      sortKey: -1750427826643
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Comunicados
-        name: list
-        meta:
-          id: req_faa0a60f490e432fa03304e4924c46ad
-          created: 1750814421519
-          modified: 1750814421519
-          isPrivate: false
-          description: ""
-          sortKey: -1750427878398
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/22
-        name: get
-        meta:
-          id: req_5dc8c3ed47ff41bc9a0f61238de2f92c
-          created: 1750814421524
-          modified: 1750814421524
-          isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/25
-        name: update
-        meta:
-          id: req_f19ac75dcd01470abdc36400abc09f15
-          created: 1750814421528
-          modified: 1750814421528
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados
-        name: insert
-        meta:
-          id: req_255717fd0d3c4b2d89c610f697432bc8
-          created: 1750814421533
-          modified: 1750814421533
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/2
-        name: delete
-        meta:
-          id: req_5db818c45b3e4604b414e31cc48954ac
-          created: 1750814421538
-          modified: 1750814421538
-          isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Responsáveis
-    meta:
-      id: fld_601a2e8c5e184b24afccf6bc3418249c
-      created: 1750814457914
-      modified: 1750814457914
-      sortKey: -1750427826718
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Comunicados
-        name: list
-        meta:
-          id: req_6e2dfb7d03b9441b8cc856a3ceead267
-          created: 1750814457917
-          modified: 1750814457917
-          isPrivate: false
-          description: ""
-          sortKey: -1750427878398
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/22
-        name: get
-        meta:
-          id: req_12e1ae4290024d07a4239da49f9e636f
-          created: 1750814457920
-          modified: 1750814457920
-          isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/25
-        name: update
-        meta:
-          id: req_6ebdf946c2ca4dac978d9dec1b6a0738
-          created: 1750814457923
-          modified: 1750814457923
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados
-        name: insert
-        meta:
-          id: req_e843f9f413b9494d8ee1f7ea98c99bc1
-          created: 1750814457926
-          modified: 1750814457926
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/2
-        name: delete
-        meta:
-          id: req_15ca3d7fcbc845ca94dcbf9badbfeb52
-          created: 1750814457930
-          modified: 1750814457930
-          isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Frequencia
-    meta:
-      id: fld_47c4c7b4502c455e97f1fa5a462c1608
-      created: 1750814477213
-      modified: 1750814477213
-      sortKey: -1750427826705.5
-      description: ""
-    children:
-      - url: http://localhost:8080/api/Comunicados
-        name: list
-        meta:
-          id: req_adf59d4dd94c4abb862aa7b33dc06a4d
-          created: 1750814477217
-          modified: 1750814477217
-          isPrivate: false
-          description: ""
-          sortKey: -1750427878398
-        method: GET
-        body:
-          mimeType: application/json
-          text: ""
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/22
-        name: get
-        meta:
-          id: req_afce4c7319dc467a8c9bbbc36df8d28c
-          created: 1750814477221
-          modified: 1750814477221
-          isPrivate: false
-          description: ""
-          sortKey: -1750427900280
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/25
-        name: update
-        meta:
-          id: req_311763250e2542d89ce9014825e04353
-          created: 1750814477225
-          modified: 1750814477225
-          isPrivate: false
-          description: ""
-          sortKey: -1750427913782
-        method: PUT
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-21T10:00:00Z",
-              "tipocomunicado": null,
-              "titulo": "Aviso alterado",
-              "mensagem": "Mensagem alterada.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados
-        name: insert
-        meta:
-          id: req_aff2c7e46f58497f870a8b024000a289
-          created: 1750814477229
-          modified: 1750814477229
-          isPrivate: false
-          description: ""
-          sortKey: -1750427930553
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-              "aluno_id": null,
-              "turma_id": null,
-              "data_publicacao": "2025-06-20T10:00:00Z",
-              "tipocomunicado": "Comunicado",
-              "titulo": "Festa na escola",
-              "mensagem": "Dia 16/07 às 10h.",
-              "responsavel_id": null
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.2.0
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: http://localhost:8080/api/Comunicados/2
-        name: delete
-        meta:
-          id: req_197a40fcf7cd4131a08b926f1097a358
-          created: 1750814477234
-          modified: 1750814477234
-          isPrivate: false
-          description: ""
-          sortKey: -1750427946359
-        method: DELETE
-        headers:
-          - name: User-Agent
-            value: insomnia/11.2.0
+            value: insomnia/11.1.0
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -1177,13 +199,13 @@ collection:
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_8d44cf8c01f352d2230a327de8e9580094fced94
-    created: 1750427796469
-    modified: 1750427796469
+    id: jar_16de509ae4c105dd727e908edee7f0e8ebaab954
+    created: 1746921355374
+    modified: 1746921355374
 environments:
   name: Base Environment
   meta:
-    id: env_8d44cf8c01f352d2230a327de8e9580094fced94
-    created: 1750427796466
-    modified: 1750427796466
+    id: env_16de509ae4c105dd727e908edee7f0e8ebaab954
+    created: 1746921355373
+    modified: 1746921355373
     isPrivate: false
