@@ -35,12 +35,12 @@ export default (function () {
                     ]
                 );
                 if (result.rowCount === 0) {
-                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Registro não encontrado para atualização.' });
+                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Refeicao não encontrado para atualização.' });
                 }
                 return response.status(HTTP_STATUS.SUCCESS).json(result.rows[0]);
             } catch (err) {
                 console.error(err);
-                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao atualizar registro.' });
+                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao atualizar Refeicao.' });
             }
         },
     };
