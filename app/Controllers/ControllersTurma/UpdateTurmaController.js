@@ -1,48 +1,49 @@
-import "../../../bootstrap/app.js";
-import ModelTurma from "../../Models/ModelsTurma/ModelTurma.js";
+import ModelTurma from "../../Models/ModelsTurma/ModelTurma";
 export default (function () {
-    const TABLE = "turma"; // Nome da tabela no banco de dados
-    const HTTP_STATUS = CONSTANTS.HTTP;
-
     return {
-        // PUT /turma/:id
-        update: async (request, response) => {
-            const { id } = request.params;
-            const {
-                turma_id,
-                nome,
-                professor_id,
-                anoletivo,
-                descricao,
-                
-            } = request.body;
+        update: async (req, res) => {
+            const HTTP_STATUS = CONSTANTS.HTTP;
+
+            const turma_id = req.params.id; // O parâmetro da rota deve ser o turma_id
+
+            const requestBody = req.body;
+            const { nome, professor_id, anoletivo, descricao } = requestBody;
+
+            const dados = {};
+
+            if (nome !== undefined) dados["nome"] = nome;
+            if (professor_id !== undefined) dados["professor_id"] = professor_id;
+            if (anoletivo !== undefined) dados["anoletivo"] = anoletivo;
+            if (descricao !== undefined) dados["descricao"] = descricao;
+
+            if (Object.keys(dados).length === 0) {
+                return res.status(HTTP_STATUS.BAD_REQUEST).json({
+                    error: `Nenhum campo foi enviado para atualização em ${turma_id}`
+                });
+            }
 
             try {
-                const result = await db.query(
-                    `UPDATE ${TABLE} SET 
-                        turma_id = $1,
-                        nome = $2,
-                        professor_id = $3,
-                        anoletivo = $4,
-                        descricao = $5,
-                        
-                    WHERE comunicado_id = $6 RETURNING *`,
-                    [
-                        turma_id,
-                        nome,
-                        professor_id,
-                        anoletivo,
-                        descricao,
-                    ]
+                const [rowsAffected, [row]] = await ModelTurma.update(
+                    dados,
+                    {
+                        where: {
+                            turma_id: turma_id
+                        },
+                        returning: true
+                    }
                 );
-                if (result.rowCount === 0) {
-                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Turma não encontrado para atualização.' });
+
+                if (rowsAffected === 0 || !row) {
+                    return res.status(HTTP_STATUS.NOT_FOUND).json({
+                        error: `Nenhuma turma encontrada com ID ${turma_id}`
+                    });
                 }
-                return response.status(HTTP_STATUS.SUCCESS).json(result.rows[0]);
-            } catch (err) {
-                console.error(err);
-                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao atualizar Turma.' });
+
+                return res.status(HTTP_STATUS.SUCCESS).json(row);
+
+            } catch (error) {
+                return res.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro de servidor.' });
             }
-        },
-    };
+        }
+    }
 })();
