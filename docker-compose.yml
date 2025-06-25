@@ -11,7 +11,7 @@ services:
       - node-modules-volume:/app/node_modules
     restart: unless-stopped
     environment:
-      - NODE_PORT=${NODE_PORT}
+      - NODE_PORT=3000
       - IS_CONTAINER=TRUE
     expose:
       - ${NODE_PORT}
@@ -26,7 +26,7 @@ services:
       context: .
       dockerfile: docker/nginx/Dockerfile
     ports:
-      - "8080:8080"
+      - "${PORT}:80"
     volumes:
       - ./public:/var/www/public
     depends_on:
