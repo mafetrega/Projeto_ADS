@@ -1,6 +1,19 @@
 import CONSTANTS from "../../../config/constants.js";
 import ResponsavelModel from "../../Models/ModelResponsaveis/ModelResponsaveis.js";
 
+/*
+CREATE TABLE
+    responsaveis (
+        responsavel_id SERIAL PRIMARY KEY,
+        nome VARCHAR(255) NOT NULL,
+        parentesco VARCHAR(50),
+        telefone VARCHAR(20),
+        email VARCHAR(255),
+        endereco VARCHAR(255),
+        observacoes TEXT
+    );
+*/
+
 export default {
     update: async (request, response) => {
         const HTTP_STATUS = CONSTANTS.HTTP;
@@ -28,7 +41,7 @@ export default {
             const [rowsAffected, [registroAtualizado]] = await ResponsavelModel.update(
                 data,
                 {
-                    where: { id: id },
+                    where: { responsavel_id: id }, // Corrigido para o nome correto do campo
                     returning: true
                 }
             );
@@ -44,7 +57,8 @@ export default {
         } catch (error) {
             console.log(error);
             return response.status(HTTP_STATUS.SERVER_ERROR).json({
-                error: 'Erro ao atualizar os dados do responsável.'
+                error: 'Erro ao atualizar os dados do responsável.',
+                details: error.message // Remova em produção se desejar
             });
         }
     }

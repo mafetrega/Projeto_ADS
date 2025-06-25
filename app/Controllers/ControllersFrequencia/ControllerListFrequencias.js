@@ -1,11 +1,12 @@
 import FrequenciaModel from "../../Models/ModelsFrequencia/ModelFrequencia.js";
+import CONSTANTS from "../../../config/constants.js"; // Adicione esta linha
 
 export default (function () {
     const MAX_LIMIT = 100;
 
     return {
         // GET /Comunicados
-        list: async (req, res) => {
+        list: async (request, response) => {
             const HTTP_STATUS = CONSTANTS.HTTP;
 
             // Exemplo de query string: ?limit=10&offset=20
@@ -23,7 +24,7 @@ export default (function () {
                 const data = await FrequenciaModel.findAll({
                     limit: limit + 1,
                     offset: offset,
-                    order: [["id", "asc"]]
+                    order: [["frequencia_id", "asc"]]
                 });
 
                 const hasMore = data.length > limit;
@@ -37,6 +38,7 @@ export default (function () {
                 });
 
             } catch (error) {
+                console.error("Erro ao listar frequências:", error);
                 return response.status(HTTP_STATUS.SERVER_ERROR).json({
                     error: 'Erro ao listar registros de frequência.'
                 });

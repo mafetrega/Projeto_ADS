@@ -9,7 +9,7 @@ export default {
 
         try {
             const rowsDeleted = await FrequenciaModel.destroy({
-                where: { id: id }
+                where: { frequencia_id: id }
             });
 
             if (rowsDeleted === 0) {
@@ -26,4 +26,4 @@ export default {
             });
         }
     }
-};
+}
