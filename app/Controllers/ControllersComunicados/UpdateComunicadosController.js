@@ -1,54 +1,61 @@
-import "../../../bootstrap/app.js";
 import ModelComunicados from "../../Models/ModelsComunicados/ModelComunicados.js";
 
-export default (function () {
-    const TABLE = "comunicados"; // Nome da tabela no banco de dados
+export default async (request, response) => {
+
     const HTTP_STATUS = CONSTANTS.HTTP;
 
-    return {
-        // PUT /comunicados/:id
-        update: async (request, response) => {
-            const { id } = request.params;
-            const {
-                aluno_id,
-                turma_id,
-                data_publicacao,
-                tipocomunicado,
-                titulo,
-                mensagem,
-                responsavel_id
-            } = request.body;
+    const id = request.params.id;
 
-            try {
-                const result = await db.query(
-                    `UPDATE ${TABLE} SET 
-                        aluno_id = $1,
-                        turma_id = $2,
-                        data_publicacao = $3,
-                        tipocomunicado = $4,
-                        titulo = $5,
-                        mensagem = $6,
-                        responsavel_id = $7
-                    WHERE comunicado_id = $8 RETURNING *`,
-                    [
-                        aluno_id,
-                        turma_id,
-                        data_publicacao,
-                        tipocomunicado,
-                        titulo,
-                        mensagem,
-                        responsavel_id,
-                        id
-                    ]
-                );
-                if (result.rowCount === 0) {
-                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Registro não encontrado para atualização.' });
-                }
-                return response.status(HTTP_STATUS.SUCCESS).json(result.rows[0]);
-            } catch (err) {
-                console.error(err);
-                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao atualizar registro.' });
+    const requestBody = request.body;
+    const nome = requestBody.nome;
+    const esta_ativo = requestBody.esta_ativo;
+
+    const data = {};
+
+    if (nome !== undefined) {
+        data["nome"] = nome;
+    }
+
+    if (esta_ativo !== undefined) {
+        data["esta_ativo"] = esta_ativo;
+    }
+
+    // Object.keys({a:1, b:2, c:3}) = [a,b,c]
+    // [a,b,c].length = 3
+
+    if (Object.keys(data).length === 0) {
+        return response.status(HTTP_STATUS.BAD_REQUEST).json({
+            error: `Nenhum campo foi inputado em ${id}`
+        });
+    }
+
+    try {
+
+        const [rowsAffected, [row]] = await ColaboradorModel.update(
+            {
+                nome: nome,
+                esta_ativo: esta_ativo
+            },
+            {
+                where: {
+                    id: id
+                },
+                returning: true
             }
-        },
-    };
-})();
+        );
+
+        if (rowsAffected === 0 || !row) {
+            return response.status(HTTP_STATUS.NOT_FOUND).json({
+                error: `Nenhum colaborador encontrado com ID ${id}`
+            });
+        }
+
+        return response.status(HTTP_STATUS.SUCCESS).json(row);
+
+    } catch (error) {
+
+        return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Error de servidor.' });
+
+    }
+
+};

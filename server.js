@@ -17,9 +17,6 @@ const webPort = process.env.PORT || 3000;
 
 const nodePort = process.env.NODE_PORT || webPort;
 
-import alunoRoutes from './src/routes/alunoRoutes.js'; 
-app.use("/", alunoRoutes);
-
 app.listen(nodePort, () => {
     console.log(chalk.green(`Servidor: http://localhost:${webPort}`));
 });
