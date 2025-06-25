@@ -28,7 +28,7 @@ export default (function () {
     // Rotas de comunicados
     router.use('/', ComunicadosRoutes);
 
-
+    //teste
 
     /** Se nenhuma rota for encontrada retorna 404 */
     router.use((req, res) => {
