@@ -1,4 +1,4 @@
--- Tabela ResponsaveisAdd commentMore actions
+-- Tabela Responsaveis
 CREATE TABLE
     responsaveis (
         responsavel_id SERIAL PRIMARY KEY,
