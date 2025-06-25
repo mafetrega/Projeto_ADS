@@ -1,15 +1,9 @@
-/*
-Este arquivo define e exporta o roteador principal da aplicação Express.
-Ele configura middlewares para servir arquivos estáticos, processar JSON,
-e inclui as rotas do sistema. Caso nenhuma rota seja encontrada,
-ele retorna um erro 404.
-*/
 import { Router } from 'express';
 import express from 'express';
 import path from 'path';
 
-import AvaliacoesRoutes from "./RoutesAvaliacoes/AvaliacoesRoutes.js";
-import ComunicadosRoutes from "./RoutesComunicados/ComunicadosRoutes.js";
+import exampleModelApi from "./exampleApi.js";
+import ListPublicFilesController from '../app/Controllers/ListPublicFilesController.js';
 
 export default (function () {
 
@@ -22,13 +16,14 @@ export default (function () {
     // NÃO SERÁ CHAMADO CASO TENHA A CAMADA DE NGINX COM ARQUIVOS ESTÁTICOS
     router.use(express.static(path.join(CONSTANTS.DIR, 'public')));
 
-    // Rotas de avaliações
-    router.use('/', AvaliacoesRoutes);
+    // Rota para listar arquivos na pasta 'public'
+    // NÃO SERÁ CHAMADO CASO TENHA A CAMADA DE NGINX COM ARQUIVOS ESTÁTICOS
+    router.get('/', ListPublicFilesController);
 
-    // Rotas de comunicados
-    router.use('/', ComunicadosRoutes);
+    // example model routes
+    router.use('/', exampleModelApi);
 
-    /** Se nenhuma rota for encontrada retorna 404 */
+    /** Se nenhuma rota for encontrada, 404 neles! */
     router.use((req, res) => {
         res.status(CONSTANTS.HTTP.NOT_FOUND).json({ error: "Not found" });
     });
