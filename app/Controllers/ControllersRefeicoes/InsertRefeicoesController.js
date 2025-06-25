@@ -17,7 +17,6 @@ CREATE TABLE
     return {
         // POST /refeicoes
         insert: async (req, res) => {
-            const refeicao_id = req.body.refeicao_id;
             const data = req.body.data;
             const tipo_refeicao = req.body.tipo_refeicao; // "Ocorrencia" ou "refeicoes"
             const descricao = req.body.descricao;
@@ -25,7 +24,6 @@ CREATE TABLE
 
             try {
                 const refeicoes = await ModelRefeicoes.create({
-                    refeicao_id: refeicao_id,
                     data: data,
                     tipo_refeicao: tipo_refeicao, // Corrigido para tipo_refeicao
                     descricao: descricao,

@@ -30,7 +30,7 @@ export default (function () {
                 type: DataTypes.INTEGER,
                 allowNull: false
             },
-            
+
             anoletivo: { // Título do comunicado
                 type: DataTypes.INTEGER,
                 allowNull: false
@@ -41,7 +41,7 @@ export default (function () {
             },
         },
         {
-            tableName: "Turma",
+            tableName: "turma",
             timestamps: false
         }
     );

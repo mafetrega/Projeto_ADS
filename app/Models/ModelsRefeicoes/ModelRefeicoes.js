@@ -41,7 +41,7 @@ CREATE TABLE
             },
         },
         {
-            tableName: "Refeicoes",
+            tableName: "refeicoes",
             timestamps: false
         }
     );

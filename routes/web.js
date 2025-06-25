@@ -11,6 +11,10 @@ import path from 'path';
 import AvaliacoesRoutes from "./RoutesAvaliacoes/AvaliacoesRoutes.js";
 import ComunicadosRoutes from "./RoutesComunicados/ComunicadosRoutes.js";
 import RefeicoesRoutes from './RoutesRefeicoes/RefeicoesRoutes.js';
+import AlunosRoutes from './RoutesAlunos/AlunosRoutes.js';
+import FrequenciaRoutes from './RoutesFrequencia/FrequenciaRoutes.js';
+import ResponsaveisRoutes from './RoutesResponsaveis/ResponsaveisRoutes.js';
+import TurmaRoutes from './RoutesTurma/TurmaRoutes.js';
 
 export default (function () {
 
@@ -31,6 +35,18 @@ export default (function () {
 
     // Rotas de Refeicoes
     router.use('/', RefeicoesRoutes);
+
+    // Rotas de Alunos
+    router.use('/', AlunosRoutes);
+
+    // Rotas de Frequencia
+    router.use('/', FrequenciaRoutes);
+
+    // Rotas de Responsaveis
+    router.use('/', ResponsaveisRoutes);
+
+    // Rotas de Turma
+    router.use('/', TurmaRoutes);
 
     /** Se nenhuma rota for encontrada retorna 404 */
     router.use((req, res) => {

@@ -1,28 +1,24 @@
-import "../../../bootstrap/app.js";
+import CONSTANTS from "../../../config/constants.js";
 import ModelTurma from "../../Models/ModelsTurma/ModelTurma.js";
-export default (function () {
-    const TABLE = "turma"; // Nome da tabela no banco de dados
 
-    const HTTP_STATUS = CONSTANTS.HTTP;
+export default {
+    delete: async (request, response) => {
+        const HTTP_STATUS = CONSTANTS.HTTP;
+        const turma_id = request.params.id;
 
-    return {
-        // DELETE /Turma/:id
-        delete: async (request, response) => {
-            const { id } = request.params;
-            try {
-                const result = await db.query(
-                    `DELETE FROM ${TABLE} WHERE turma_id = $1 RETURNING *`,
-                    [id]
-                );
-                if (result.rowCount === 0) {
-                    return response.status(HTTP_STATUS.NOT_FOUND).json({ error: 'Turma não encontrada para exclusão.' });
-                }
-                return response.status(HTTP_STATUS.SUCCESS_NO_CONTENT).send();
-            } catch (err) {
-                console.error(err);
-                return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro ao excluir Turma.' });
+        try {
+            const rowsDeleted = await ModelTurma.destroy({
+                where: { turma_id }
+            });
+
+            if (rowsDeleted === 0) {
+                return response.status(HTTP_STATUS.NOT_FOUND).json({ error: `Turma com id ${turma_id} não existe!` });
             }
-        },
-    }
-})();
 
+            return response.status(HTTP_STATUS.SUCCESS_NO_CONTENT).send();
+        } catch (error) {
+            console.log(error);
+            return response.status(HTTP_STATUS.SERVER_ERROR).json({ error: 'Erro de servidor.' });
+        }
+    }
+};
