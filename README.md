@@ -1,4 +1,4 @@
-# Projeto 3º Semestre - Sistema Escolar
+# Projeto_ADS
 
 Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Docker, com arquitetura MVC. O objetivo é gerenciar informações de alunos, professores, turmas, frequência, avaliações, refeições e comunicados.
 
@@ -14,34 +14,29 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 
 ## Estrutura do Projeto
 ```
-.
-├── app/
-│   ├── controllers/         # Lógica dos controladores da aplicação
-│   ├── models/              # Definição dos modelos Sequelize
-│   └── services/            # Lógica de negócio e serviços auxiliares
-├── bootstrap/               # Arquivos de inicialização do projeto
-├── config/                  # Configurações gerais (ex: banco de dados)
-├── docker/
-│   ├── nginx/               # Configurações do NGINX
-│   ├── node/                # Configurações do container Node.js
-│   └── postgres/            # Configurações do container PostgreSQL
-├── docs/                    # Documentação do projeto
-├── migrations/              # Arquivos de migração do banco de dados
-├── public/                  # Arquivos públicos (ex: assets)
-├── routes/                  # Definição das rotas da API
-├── tests/                   # Testes automatizados
-├── server.js                # Arquivo principal do servidor
-├── docker-compose.yml       # Orquestração dos containers
-├── .env.example             # Exemplo de variáveis de ambiente
-└── readme.md                # Documentação do projeto
+. 
+├── app/ 
+│ ├── Controllers/ # Lógica dos controladores da aplicação 
+│ └── Models/ # Definição dos modelos Sequelize 
+├── bootstrap/ # Arquivos de inicialização do projeto 
+├── config/ # Configurações gerais (ex: banco de dados) 
+├── docker/ 
+│ ├── nginx/ # Configurações do NGINX 
+│ ├── node22-web/ # Configurações do container Node.js 
+│ └── postgres/ # Configurações do container PostgreSQL 
+├── docs/ # Documentação do projeto 
+├── public/ # Arquivos públicos (ex: assets) 
+├── routes/ # Definição das rotas da API 
+├── server.js # Arquivo principal do servidor 
+├── docker-compose.yml # Orquestração dos containers 
+├── .env.example # Exemplo de variáveis de ambiente 
+└── readme.md # Documentação do projeto
 ```
 ## Como rodar o projeto
 
 1. **Clone o repositório**  
+   `git clone https://github.com/mafetrega/Projeto_ADS.git`
 
-   ```ini
-   git clone https://github.com/mafetrega/Projeto_ADS.git
-   ```
 2. **Configure o arquivo `.env`**  
    No windows:
 
@@ -56,13 +51,14 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
    ```
 
 3. **Suba os containers com Docker Compose**  
-   ```ini
-   docker-compose up --build
-   ```
+   `docker-compose up --build`
 
 4. **Acesse a aplicação**  
    - (http://localhost:8080)
 
+## Documentação da API
+
+A documentação pode ser acessada via Swagger em `/api-docs` (se configurado).
 
 ## Tecnologias Utilizadas
 
@@ -75,8 +71,11 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 - Swagger (documentação da API)
 
 ## Autores
-- Guilherme Almeida Silva - 6324521
-- Jefter Alves - 6424502
-- Lucas Gabriel - 6324507
-- Maria Fernanda Trega - 6324656
-- Tais Gomes - 6324004
+
+- Guilherme
+- Jefter
+- Lucas
+- Maria Fernanda
+- Tais
+
+---
