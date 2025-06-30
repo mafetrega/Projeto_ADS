@@ -13,7 +13,7 @@ import ComunicadosRoutes from "./RoutesComunicados/ComunicadosRoutes.js";
 import RefeicoesRoutes from './RoutesRefeicoes/RefeicoesRoutes.js';
 import AlunosRoutes from './RoutesAlunos/AlunosRoutes.js';
 import FrequenciaRoutes from './RoutesFrequencia/FrequenciaRoutes.js';
-import ResponsaveisRoutes from './RoutesResponsaveis/ResponsaveisRoutes.js';
+import ResponsaveisRoutes from './RoutesResponsavel/ResponsavelRoutes.js';
 import TurmaRoutes from './RoutesTurma/TurmaRoutes.js';
 
 export default (function () {

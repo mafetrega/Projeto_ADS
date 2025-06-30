@@ -1,5 +1,5 @@
 import "../../../bootstrap/app.js";
-import ModelsAvaliacoes from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
+import ModelAvaliacoes from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
 
 export default (function () {
 
@@ -9,7 +9,7 @@ export default (function () {
             const id = req.params.id;
 
             try {
-                const avaliacao = await ModelsAvaliacoes.findByPk(id);
+                const avaliacao = await ModelAvaliacoes.findByPk(id);
 
                 if (!avaliacao) {
                     return res.status(404).json({ error: "Avaliação não encontrada." });

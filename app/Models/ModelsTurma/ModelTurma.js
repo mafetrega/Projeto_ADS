@@ -23,7 +23,7 @@ export default (function () {
                 allowNull: false
             },
             nome: { // Tipo de comunicado
-                type: DataTypes.VARCHAR(100),
+                type: DataTypes.STRING(100),
                 allowNull: false
             },
             professor_id: { // Data de publicação do comunicado
