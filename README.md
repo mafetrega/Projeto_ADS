@@ -37,30 +37,63 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 ```
 ## Como rodar o projeto
 
-1. **Clone o repositório**  
+1. Clonar o repositório:
 
-   ```ini
-   git clone https://github.com/mafetrega/Projeto_ADS.git
+   ```sh
+   git clone https://github.com/luan-tavares/unifaat-devweb-aula15-filas
    ```
-2. **Configure o arquivo `.env`**  
-   No windows:
 
-   ```ini
+2. Entrar na pasta do projeto:
+
+   ```sh
+   cd unifaat-devweb-aula15-filas
+   ```
+
+3. Criar o arquivo `.env` na raiz do projeto copiando o `.env.example`:
+
+   > No Windows:
+
+   ```sh
    copy .env.example .env
    ```
 
-   No linux:
+   > No Linux:
 
-   ```ini
+   ```sh
    cp .env.example .env
    ```
 
-3. **Suba os containers com Docker Compose**  
-   ```ini
+4. Abrir o arquivo `.env` recém criado e preencher os campos abaixo:
+
+   ```env
+   POSTGRES_HOST=postgres_host
+   POSTGRES_PORT=5432
+   POSTGRES_USER=meu_usuario
+   POSTGRES_PASSWORD=minha_senha
+   POSTGRES_DB=Sistema_Escolar
+   ```
+
+5. Instalar as dependências:
+
+   ```sh
+   npm install
+   ```
+
+6. Subir a aplicação com Docker Compose:
+
+   > Docker Compose tradicional:
+
+   ```sh
    docker-compose up --build
    ```
 
-4. **Acesse a aplicação**  
+   > Docker Compose moderno:
+
+   ```sh
+   docker compose up --build
+   ```
+
+7. **Acesse a aplicação**  
    - (http://localhost:8080)
 
 ## Rotas
