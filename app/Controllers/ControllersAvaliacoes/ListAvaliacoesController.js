@@ -1,5 +1,9 @@
 import "../../../bootstrap/app.js";
 import ModelAvaliacoes from "../../Models/ModelsAvaliacoes/ModelAvaliacoes.js";
+import Aluno from "../../Models/ModelsAlunos/Aluno.js";
+import ModelTurma from "../../Models/ModelsTurma/ModelTurma.js";
+//import ModelProfessores from "../../Models/ModelsProfessores/ModelProfessores.js";
+
 
 export default (function () {
     const MAX_LIMIT = 100;
@@ -19,6 +23,20 @@ export default (function () {
                     limit: limit + 1, // Para verificar se há mais registros
                     offset: offset,
                     order: [["avaliacao_id", "ASC"]],
+                    include: [
+                        {
+                            model: Aluno,
+                            as: 'aluno',
+                        },
+                        {
+                            model: ModelTurma,
+                            as: 'turma',
+                        },
+                        //{
+                        //    model: ModelProfessores,
+                        //    as: 'professor',
+                        //}
+                    ]
                 });
 
                 const temMais = avaliacoes.length > limit;

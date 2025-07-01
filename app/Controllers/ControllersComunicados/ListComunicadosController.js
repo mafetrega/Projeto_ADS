@@ -1,5 +1,8 @@
 import "../../../bootstrap/app.js";
 import ModelComunicados from "../../Models/ModelsComunicados/ModelComunicados.js";
+import Aluno from "../../Models/ModelsAlunos/Aluno.js";
+import ModelTurma from "../../Models/ModelsTurma/ModelTurma.js";
+import ModelResponsaveis from "../../Models/ModelResponsaveis/ModelResponsaveis.js";
 
 export default (function () {
     const MAX_LIMIT = 100;
@@ -35,6 +38,20 @@ export default (function () {
                 limit: limit + 1, // Para verificar se há mais registros
                 offset: offset,
                 order: [["comunicado_id", "ASC"]],
+                include: [
+                    {
+                        model: Aluno,
+                        as: 'aluno',
+                    },
+                    {
+                        model: ModelTurma,
+                        as: 'turma',
+                    },
+                    {
+                        model: ModelResponsaveis,
+                        as: 'responsavel',
+                    }
+                ]
             });
 
             const temMais = comunicados.length > limit;

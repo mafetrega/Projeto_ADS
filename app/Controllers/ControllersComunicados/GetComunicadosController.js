@@ -1,5 +1,8 @@
 import "../../../bootstrap/app.js";
 import ModelComunicados from "../../Models/ModelsComunicados/ModelComunicados.js";
+import Aluno from "../../Models/ModelsAlunos/Aluno.js";
+import ModelTurma from "../../Models/ModelsTurma/ModelTurma.js";
+import ModelResponsaveis from "../../Models/ModelResponsaveis/ModelResponsaveis.js";
 
 export default (function () {
 
@@ -9,7 +12,22 @@ export default (function () {
             const id = req.params.id;
 
             try {
-                const comunicado = await ModelComunicados.findByPk(id);
+                const comunicado = await ModelComunicados.findByPk(id, {
+                    include: [
+                        {
+                            model: Aluno,
+                            as: 'aluno',
+                        },
+                        {
+                            model: ModelTurma,
+                            as: 'turma',
+                        },
+                        {
+                            model: ModelResponsaveis,
+                            as: 'responsavel',
+                        }
+                    ]
+                });
 
                 if (!comunicado) {
                     return res.status(404).json({ error: "Comunicado não encontrado." });
