@@ -16,24 +16,46 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 ```
 .
 ├── app/
-│   ├── controllers/         # Lógica dos controladores da aplicação
-│   ├── models/              # Definição dos modelos Sequelize
-│   └── services/            # Lógica de negócio e serviços auxiliares
+│   ├── Controllers/         # Lógica dos controladores da aplicação
+│   │   ├── ControllerProfessor/     # Controladores para professores
+│   │   ├── ControllersAlunos/       # Controladores para alunos
+│   │   ├── ControllersAvaliacoes/   # Controladores para avaliações
+│   │   ├── ControllersComunicados/  # Controladores para comunicados
+│   │   ├── ControllersFrequencia/   # Controladores para frequência
+│   │   ├── ControllersRefeicoes/    # Controladores para refeições
+│   │   ├── ControllersResponsaveis/ # Controladores para responsáveis
+│   │   └── ControllersTurma/        # Controladores para turmas
+│   └── Models/              # Definição dos modelos Sequelize
+│       ├── ModelResponsaveis/       # Modelos para responsáveis
+│       ├── ModelsAlunos/            # Modelos para alunos
+│       ├── ModelsAvaliacoes/        # Modelos para avaliações
+│       ├── ModelsComunicados/       # Modelos para comunicados
+│       ├── ModelsFrequencia/        # Modelos para frequência
+│       ├── ModelsRefeicoes/         # Modelos para refeições
+│       └── ModelsTurma/             # Modelos para turmas
 ├── bootstrap/               # Arquivos de inicialização do projeto
-├── config/                  # Configurações gerais (ex: banco de dados)
+├── config/                  # Configurações gerais (banco de dados, constantes)
 ├── docker/
 │   ├── nginx/               # Configurações do NGINX
-│   ├── node/                # Configurações do container Node.js
+│   ├── node22-web/          # Configurações do container Node.js
 │   └── postgres/            # Configurações do container PostgreSQL
 ├── docs/                    # Documentação do projeto
-├── migrations/              # Arquivos de migração do banco de dados
-├── public/                  # Arquivos públicos (ex: assets)
+├── public/                  # Arquivos públicos (ex: index.html)
 ├── routes/                  # Definição das rotas da API
-├── tests/                   # Testes automatizados
+│   ├── RoutesAlunos/        # Rotas para alunos
+│   ├── RoutesAvaliacoes/    # Rotas para avaliações
+│   ├── RoutesComunicados/   # Rotas para comunicados
+│   ├── RoutesFrequencia/    # Rotas para frequência
+│   ├── RoutesRefeicoes/     # Rotas para refeições
+│   ├── RoutesResponsavel/   # Rotas para responsáveis
+│   ├── RoutesTurma/         # Rotas para turmas
+│   └── web.js               # Arquivo principal de rotas
 ├── server.js                # Arquivo principal do servidor
 ├── docker-compose.yml       # Orquestração dos containers
+├── Insomnia.yaml            # Configurações para testes de API
+├── package.json             # Dependências e scripts do projeto
 ├── .env.example             # Exemplo de variáveis de ambiente
-└── readme.md                # Documentação do projeto
+└── README.md                # Documentação do projeto
 ```
 ## Como rodar o projeto
 
