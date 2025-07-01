@@ -1,11 +1,20 @@
-import Aluno from '../..//Models/ModelsAlunos/Aluno.js';
+import Aluno from '../../Models/ModelsAlunos/Aluno.js';
+import ModelTurma from '../../Models/ModelsTurma/ModelTurma.js';
 
 const AlunoController = {
   async listar(req, res) {
     try {
-      const alunos = await Aluno.findAll();
+      const alunos = await Aluno.findAll({
+        include:[
+          {
+          model: ModelTurma,
+          as: 'turma',
+          }
+        ]
+      });
       res.json(alunos);
     } catch (error) {
+      console.log(error);
       res.status(500).json({ erro: 'Erro ao buscar alunos.' });
     }
   },
