@@ -40,13 +40,13 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
 1. Clonar o repositório:
 
    ```sh
-   git clone https://github.com/luan-tavares/unifaat-devweb-aula15-filas
+   git clone https://github.com/mafetrega/Projeto_ADS.git
    ```
 
 2. Entrar na pasta do projeto:
 
    ```sh
-   cd unifaat-devweb-aula15-filas
+   cd Projeto_ADS
    ```
 
 3. Criar o arquivo `.env` na raiz do projeto copiando o `.env.example`:
