@@ -63,7 +63,13 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
    cp .env.example .env
    ```
 
-4. Abrir o arquivo `.env` recém criado e preencher os campos abaixo:
+4. Abra o Projeto no VS Code
+
+   ```sh
+   code .
+   ```
+
+5. Abrir o arquivo `.env` recém criado e preencher os campos abaixo:
 
    ```env
    POSTGRES_HOST=postgres_host
@@ -73,13 +79,13 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
    POSTGRES_DB=Sistema_Escolar
    ```
 
-5. Instalar as dependências:
+6. Instalar as dependências:
 
    ```sh
    npm install
    ```
 
-6. Subir a aplicação com Docker Compose:
+7. Subir a aplicação com Docker Compose:
 
    > Docker Compose tradicional:
 
@@ -93,7 +99,7 @@ Sistema Escolar desenvolvido em Node.js com Express, PostgreSQL, Sequelize e Doc
    docker compose up --build
    ```
 
-7. **Acesse a aplicação**  
+8. **Acesse a aplicação**  
    - (http://localhost:8080)
 
 ## Rotas
